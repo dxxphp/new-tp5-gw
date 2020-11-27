@@ -1,0 +1,71 @@
+<div class="footer-server clearfix">
+    <div class="server w1200">
+        <dl>
+            <dd><img class="lazy" data-original="{$Think.UPLOAD_SITE_URL}/{$Think.ATTACH_COMMON}/{$Think.config.site_logo}" width="120" style="display: inline-block;"></dd>
+        </dl>
+        <dl>
+            <dt><a href="{:url('product/detail',['product_id'=>8])}" target="_blank">联系我们</a></dt>
+            <dd> 电话：18518190359</dd>
+            <dd>手机：18518190359</dd>
+
+        </dl>
+        <dl>
+            <dt><a href="{:url('job/index')}" target="_blank">招聘英才</a></dt>
+
+
+
+        </dl>
+        <dl>
+            <dt><a href="{:url('Message/index')}" target="_blank">在线留言</a></dt>
+
+            <dd>邮箱：李将@163.com</dd>
+            <dd>地址：山西省运城市稷山县</dd>
+        </dl>
+        <dl>
+            <dd><img class="lazy" data-original="{$Think.UPLOAD_SITE_URL}/{$Think.ATTACH_COMMON}/{$Think.config.site_logowx}" width="120" style="display: inline-block;"></dd>
+        </dl>
+    </div>
+    <div class="link w1200">
+        <dl>
+            <dt>友情链接:</dt>
+            <dd>
+                {volist name="link_list" id="link"}
+                <a target="_blank" href="{$link.link_weburl}">{$link.link_webname}</a>|
+                {/volist}
+            </dd>
+        </dl>
+    </div>
+</div>
+<div class="footer clearfix">
+    <div class="w1200">
+        版权所有 <a href="http://www.csdeshang.com" target="_blank">{$Think.config.flow_static_code}</a><br/>
+        CopyRight 2020 All Right Reserved
+    </div>
+</div>
+
+<div class="common_right_fix">
+    <ul>
+        <li>
+            <a href="javascript:;">在<br>线<br>客<br>服</a>
+            <span>
+                <h3>请咨询客服</h3>
+                <a href="tencent://message/?uin=1934947035&amp;Site=www.csdeshang.com&amp;Menu=yes">
+                    <img border="0" src="http://pub.idqqimg.com/wpa/images/counseling_style_51.png" alt="点击这里给我发消息" title="点击这里给我发消息">&nbsp;&nbsp;售前
+                </a>
+
+            </span>
+        </li>
+        <li><a href="javascript:;"><br>咨<br>询<br>热<br>线</a><span><h3>咨询电话</h3><a>18518190359</a></span></li>
+    </ul>
+</div>
+
+
+<script src="{$Think.PLUGINS_SITE_ROOT}/jquery.lazyload.min.js"></script>
+<script>
+    //懒加载
+    $("img.lazy").lazyload({
+        effect: "fadeIn"
+    });
+</script>
+</body>
+</html>

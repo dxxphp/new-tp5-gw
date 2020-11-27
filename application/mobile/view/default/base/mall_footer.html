@@ -1,0 +1,22 @@
+<dl class="friend-link">
+    <dt>友情链接</dt>
+    <dd>
+        {volist name="link_list" id="link"}
+        <a target="_blank" href="{$link.link_weburl}">{$link.link_webname}</a>
+        {/volist}
+    </dd>
+</dl>
+<div class="copyright">
+
+    <p>版权所有 <a href="{:url('index/index')}" target="_blank">{$Think.config.flow_static_code}</a><br/></p>
+    <p>CopyRight 2020 All Right Reserved</p>
+</div>
+
+<div class="footer-nav">
+    <ul>
+        <li class="current"><a href="{:url('index/index')}"><i class="iconfont">&#xe6ca;</i><span>首页</span></a></li>
+        <li class="current"><a href="{:url('cases/search')}"><i class="iconfont">&#xe6d2;</i><span>案例</span></a></li>
+        <li class="current"><a href="{:url('product/search')}"><i class="iconfont">&#xe6d7;</i><span>产品</span></a></li>
+        <li class="current"><a href="{:url('news/search')}"><i class="iconfont">&#xe72e;</i><span>新闻</span></a></li>
+    </ul>
+</div>

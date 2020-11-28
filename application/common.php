@@ -374,7 +374,7 @@ function ds_decrypt($txt, $key = '', $ttl = 0)
     $i = 0;
     $tlen = @strlen($txt);
     while (isset($key[$i]))
-        $knum += ord($key{$i++});
+        $knum += ord($key[$i++]);
     $ch1 = @$txt[$knum % $tlen];
     $nh1 = strpos($chars, $ch1);
     $txt = @substr_replace($txt, '', $knum % $tlen--, 1);

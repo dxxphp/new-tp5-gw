@@ -14,7 +14,7 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">{$Think.lang.admin_password}</label>
                     <div class="layui-input-block">
-                        <input type="password" class="layui-input field-name" name="admin_password" id="admin_password" value=""  placeholder="{if $admin.add eq '1'} {:lang('ds_please_enter')}{:lang('admin_password')}{else}{:lang('admin_edit_password_keep')}{/if} " />
+                        <input type="password" class="layui-input field-name" name="admin_password" id="admin_password" value="{$admin.admin_password|default=''}"  placeholder="{if $admin.add eq '1'} {:lang('ds_please_enter')}{:lang('admin_password')}{else}{:lang('admin_edit_password_keep')}{/if} " />
                     </div>
                 </div>
                 <div class="layui-form-item">

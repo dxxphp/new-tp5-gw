@@ -61,6 +61,7 @@ class Cases extends BaseMall
             $casescolumn_list = model('column')->getColumnList($where);
             wcache($key, $casescolumn_list, '', 36000);
         }
+
         $this->assign('cases_column', $casescolumn_list);
         $this->assign('cases_info', $cases_info);
         return $this->fetch($this->template_dir . 'detail');

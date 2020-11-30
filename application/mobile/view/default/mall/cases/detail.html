@@ -23,7 +23,7 @@
         <h2>{$cases_info.cases_title}</h2>
     </div>
     <div class="mc">
-        {$cases_info.cases_content}
+        {:htmlspecialchars_decode($cases_info.cases_content)}
     </div>
 </div>
 

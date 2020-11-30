@@ -28,9 +28,9 @@
             {else /}
             {foreach name="news_list" item="news"}
             <li>
-                <div class="p_img">
+                <div class="new-img">
                     <a href="{:url('news/detail',['news_id'=>$news.news_id])}">
-                        <img style="height: 100px;width: 100px;"  src="{:get_news_img($news.news_imgurl)}"/>
+                        <img style="height: 200px;width: 375px;"  src="{:get_news_img($news.news_imgurl)}"/>
                     </a>
                 </div>
                 <div class="p_name">

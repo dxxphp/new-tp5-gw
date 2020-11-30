@@ -28,9 +28,9 @@
             {else /}
             {foreach name="cases_list" item="cases"}
             <li>
-                <div class="p_img">
+                <div class="new-img">
                     <a href="{:url('cases/detail',['cases_id'=>$cases.cases_id])}">
-                        <img style="height: 100px;width: 100px;" src="{:get_cases_img($cases.cases_imgurl)}"/>
+                        <img style="width: 375px;height: 250px;" src="{:get_cases_img($cases.cases_imgurl)}"/>
                     </a>
                 </div>
                 <div class="p_name">

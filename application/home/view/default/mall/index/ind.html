@@ -1,0 +1,278 @@
+{load href="__STATIC__/lib/bootstrap-3/css/bootstrap.css" /}
+
+{load href="__STATIC__/lib/bootstrap-3/js/bootstrap.js" /}
+
+<script>
+    NProgress.configure({ showSpinner: false });
+    NProgress.start();
+</script>
+
+<link rel="stylesheet" href="/static/music/css/reset.css">
+
+
+<link rel="stylesheet" href="/static/music/css/style.css" media="screen" type="text/css" />
+
+<div class="mobile-sticky-body-overlay"></div>
+
+<div class="wrapper">
+    <style>
+
+        .pages{float: right}
+        .pages a,.pages span {
+            display:inline-block;
+            padding:20px 20px;
+            border:1px solid #f0f0f0;
+            -webkit-border-radius:3px;
+            -moz-border-radius:3px;
+            border-radius:30px;
+            font-size: 14px;
+        }
+        .pages a,.pages li {
+
+            display:inline-block;
+            list-style: none;
+            text-decoration:none; color:#58A0D3;
+        }
+        .pages a.first,.pages a.prev,.pages a.next,.pages a.end{
+            margin:0 auto;
+        }
+        .pages a:hover{
+            border-color:#50A8E6;
+        }
+        .pages span.current{
+            background:#50A8E6;
+            color:#FFF;
+            font-weight:700;
+            border-color:#50A8E6;
+        }
+
+    </style>
+    <!--
+====================================
+——— LEFT SIDEBAR WITH FOOTER
+=====================================
+-->
+
+    <div class="page-wrapper" >
+        <!-- Header -->
+
+        <div class="content-wrapper">
+            <div class="content">
+                <br><br>
+
+                <div>
+
+                    <label><input type="radio" class="fores" name="sex" value="1"  {if $fors =='1'} checked="checked" {/if} >列表播放</label>
+                    <label><input type="radio" class="fores" name="sex" value="2" {if $fors =='2'} checked="checked" {/if}>单曲播放</label>
+                    <label><input type="radio" class="fores" name="sex" value="3" {if $fors =='3'} checked="checked" {/if}>随机播放</label>
+
+                    <label><input type="radio" class="syns" name="syns" value="1" {if $syns =='1'} checked="checked" {/if}>关闭音乐同步</label>
+                    <label><input type="radio" class="syns" name="syns" value="2" {if $syns =='2'} checked="checked" {/if}>开启音乐同步</label>
+
+                </div> <br><br><br>
+
+
+                <div class="rightShop" style="width: 1000px; float: left;">
+
+                    <div class="list">
+                        <table class="table card-table table-responsive table-responsive-large" style="width:100%">
+                            <thead>
+                            <tr style="color: #0e121f;">
+                                <th style="color: #0e121f;">歌手</th>
+                                <th style="color: #0e121f;">歌曲</th>
+
+                            </tr>
+                            </thead>
+                            <tbody class="body">
+                            {foreach name="plist.data" item="value"}
+
+                            <tr>
+                                <td style="color: #0e121f;">{$value.title}</td>
+                                <td style="color: #0e121f;">
+
+                                    <a href="{:url('home/index/show')}?page={$page}&seach={$value.artist}" style='text-decoration:none;' >{$value.artist}</a>
+
+                                </td>
+
+                            </tr>
+                            {/foreach}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <tfoot>
+                    <!--分页显示？-->
+                    <tr><td textalign="center" cl nowrap="true" colspan="9" height="20"><div class="pages" style="color: #0f0f0f;">{$plist.page}</div><h4 style="color: #0e121f;">共{$plist.num}条</h4></td></tr>
+                    </tfoot>
+
+                </div>
+
+                <div style="padding-right: 200px; float: right" id="bodys" >
+                    <body class="header-fixed sidebar-fixed sidebar-dark header-light" id="body">
+
+                    <div class="music-player">
+                        <!--<div style="background-image: url(http://i.imgur.com/yqB0erk.jpg);" class="album"></div>-->
+
+                        <div class="info">
+                            <div class="left">
+                                <a href="javascript:;" class="icon-shuffle"></a>
+                                <a href="javascript:;" class="icon-heart"></a>
+
+                            </div>
+                            <div class="center">
+                                <div class="jp-playlist">
+                                    <ul>
+                                        <li></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                            <div class="right">
+                                <a href="javascript:;" class="icon-repeat"></a>
+                                <a href="javascript:;" class="icon-share"></a>
+                            </div>
+
+                            <div class="progress jp-seek-bar">
+                                <span class="jp-play-bar" style="width: 0%"></span>
+                            </div>
+                        </div>
+
+                        <div class="controls">
+                            <div class="current jp-current-time">00:00</div>
+                            <div class="play-controls">
+                                <a href="javascript:;" class="icon-previous jp-previous" title="previous"></a>
+                                <a href="javascript:;" class="icon-play jp-play" title="play"></a>
+                                <a href="javascript:;" class="icon-pause jp-pause" title="pause"></a>
+                                <a href="javascript:;" class="icon-next jp-next" title="next"></a>
+                            </div>
+                            <div class="volume-level jp-volume-bar">
+                                <span class="jp-volume-bar-value" style="width: 0%"></span>
+                                <a href="javascript:;" class="icon-volume-up jp-volume-max" title="max volume"></a>
+                                <a href="javascript:;" class="icon-volume-down jp-mute" title="mute"></a>
+                            </div>
+                        </div>
+
+                        <div id="jquery_jplayer" class="jp-jplayer"></div>
+
+                    </div>
+
+                    <div class="lrctext" style="margin-top: 100px;">
+                        <!-- 歌词展示区域 -->
+
+                    </div>
+                    </body>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+</html>
+<script src="/static/music/js/jquery.min.js"></script>
+<script src='/static/music/js/jquery.jplayer.min.js'></script>
+<script src='/static/music/js/jplayer.playlist.min.js'></script>
+<script>
+
+    var json = {$json};
+    var fores = {$fors};
+    var syns = {$syns};
+    $(document).ready(function(){
+
+
+        playlists(json)
+
+    });
+
+    function playlists(coordinates) {
+
+        var playlist = coordinates
+
+        //     [{
+        //     title:"Hidden",
+        //     artist:"Miaow",
+        //     mp3:"/uploads/music/123.mp3",
+        //     //oga:"http://www.jplayer.org/audio/ogg/Miaow-02-Hidden.ogg",
+        //     poster: "http://33.media.tumblr.com/0b35eb42176eedbf4a96e52efa760875/tumblr_mxp7a0v3fr1rqx86wo1_500.png"
+        // },{
+        //     title:"Cro Magnon Man",
+        //     artist:"The Stark Palace",
+        //     mp3:"http://jq22.qiniudn.com/i2.mp3",
+        //     //oga:"http://www.jplayer.org/audio/ogg/TSP-01-Cro_magnon_man.ogg",
+        //     poster: "http://33.media.tumblr.com/bf9dc125a47dcca91ce5b3575bc3ba92/tumblr_nbmb3j8nU51sq3g2zo1_500.png"
+        // },{
+        //     title:"Bubble",
+        //     m4a: "http://www.jplayer.org/audio/m4a/Miaow-07-Bubble.m4a",
+        //     oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg",
+        //     poster: "http://31.media.tumblr.com/810b1125a8b9e9f192d009ef58dceb07/tumblr_nbe8wsmKuz1rknpqyo1_500.jpg"
+        // }];
+
+        var cssSelector = {
+            jPlayer: "#jquery_jplayer",
+            cssSelectorAncestor: ".music-player"
+        };
+
+        var options = {
+            swfPath: "http://cdnjs.cloudflare.com/ajax/libs/jplayer/2.6.4/jquery.jplayer/Jplayer.swf",
+            supplied: "ogv, m4v, oga, mp3"
+        };
+
+        var myPlaylist = new jPlayerPlaylist(cssSelector, playlist, options);
+    }
+
+    $('.fores').on("click",function(){
+
+        var val = $(this).val();
+
+        if(fores != val){
+
+            $.ajax({
+                type: "POST",
+                url: "{:url('home/index/status')}",
+                data: {
+                    'type' : 1 ,
+                    'fores' : val ,
+
+                },  // 等号前后不要加空格
+                success: function(msg){  //请求成功后的回调函数
+
+                    if(msg == '200'){
+                        location.replace(location)
+                    }
+                }
+
+            });
+        }
+
+    });
+
+    $('.syns').on("click",function(){
+
+        var val = $(this).val();
+
+        if(syns != val){
+
+            $.ajax({
+                type: "POST",
+                url: "{:url('home/index/status')}",
+                data: {
+                    'type' : 2 ,
+                    'syns' : val ,
+
+                },  // 等号前后不要加空格
+                success: function(msg){  //请求成功后的回调函数
+
+                    if(msg == '200'){
+                        location.replace(location)
+                    }
+                }
+
+            });
+        }
+
+    });
+
+
+
+</script>
